@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — SEVO</title>
+  <link rel="stylesheet" href="css/projects.css">
+  <script src="shared/js/shared.js" defer></script>
+  <script src="js/projects.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Site">
+      <div class="brand" aria-label="SEVO logo">
+        <span>SEVO</span>
+      </div>
+      <nav role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="home.html" aria-label="Home">Home</a></li>
+          <li><a href="about-us.html" aria-label="About Us">About Us</a></li>
+          <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
+          <li><a href="news.html" aria-label="News">News</a></li>
+          <li><a href="get-involoved.html" aria-label="Get Involved">Get Involved</a></li>
+          <li><a href="transparncy.html" aria-label="Transparency">Transparency</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <a class="btn btn-black" href="get-involoved.html" aria-label="Donate Now">Donate Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero section">
+      <div class="container">
+        <h1>Our Projects</h1>
+        <p>Discover impactful initiatives we're leading to create sustainable change in Sudanese communities. Each project represents hope, dignity, and progress.</p>
+      </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter">
+      <div class="container">
+        <div class="search-filter-container">
+          <div class="search-box">
+            <input type="search" class="search-input" placeholder="Search projects..." aria-label="Search projects">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <div class="filter-tags" role="group" aria-label="Filter projects by category">
+            <button class="filter-tag active" aria-pressed="true">All Projects</button>
+            <button class="filter-tag" aria-pressed="false">Water</button>
+            <button class="filter-tag" aria-pressed="false">Education</button>
+            <button class="filter-tag" aria-pressed="false">Health</button>
+            <button class="filter-tag" aria-pressed="false">Women's Empowerment</button>
+            <button class="filter-tag" aria-pressed="false">Agriculture</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="projects-grid" id="projects-container">
+          <!-- Project Card 1 -->
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Clean Water Initiative project image"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Clean Water Initiative</h3>
+                <span class="project-status status-ongoing">Ongoing</span>
+              </div>
+              <p class="project-description">Building sustainable water solutions in rural communities. Currently constructing 5 new wells in Darfur region.</p>
+              <div class="project-meta">
+                <span class="project-tag">Water</span>
+                <span class="project-tag">Infrastructure</span>
+              </div>
+              <div class="project-metrics">
+                <div class="metric">
+                  <div class="metric-value">5</div>
+                  <div class="metric-label">Wells</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">3,200</div>
+                  <div class="metric-label">People Served</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">12</div>
+                  <div class="metric-label">Volunteers</div>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Education for All project image"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Education for All</h3>
+                <span class="project-status status-ongoing">Ongoing</span>
+              </div>
+              <p class="project-description">Providing educational resources and support to children in underserved communities. Expanding to 3 new villages this year.</p>
+              <div class="project-meta">
+                <span class="project-tag">Education</span>
+                <span class="project-tag">Children</span>
+              </div>
+              <div class="project-metrics">
+                <div class="metric">
+                  <div class="metric-value">1,200</div>
+                  <div class="metric-label">Students</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">8</div>
+                  <div class="metric-label">Schools</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">45</div>
+                  <div class="metric-label">Teachers</div>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span>60%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Women's Empowerment project image"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Women's Empowerment</h3>
+                <span class="project-status status-ongoing">Ongoing</span>
+              </div>
+              <p class="project-description">Vocational training and microfinance programs for women entrepreneurs. 150 women currently enrolled in our programs.</p>
+              <div class="project-meta">
+                <span class="project-tag">Women</span>
+                <span class="project-tag">Economic</span>
+              </div>
+              <div class="project-metrics">
+                <div class="metric">
+                  <div class="metric-value">150</div>
+                  <div class="metric-label">Women</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">12</div>
+                  <div class="metric-label">Businesses</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">85%</div>
+                  <div class="metric-label">Success Rate</div>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span>45%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 45%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Mobile Health Clinics project image"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Mobile Health Clinics</h3>
+                <span class="project-status status-completed">Completed</span>
+              </div>
+              <p class="project-description">Bringing essential medical services to remote communities. Successfully served 8,500 patients across 15 villages.</p>
+              <div class="project-meta">
+                <span class="project-tag">Health</span>
+                <span class="project-tag">Medical</span>
+              </div>
+              <div class="project-metrics">
+                <div class="metric">
+                  <div class="metric-value">8,500</div>
+                  <div class="metric-label">Patients</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">15</div>
+                  <div class="metric-label">Villages</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">3</div>
+                  <div class="metric-label">Clinics</div>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span>100%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 5 -->
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Sustainable Agriculture project image"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Sustainable Agriculture</h3>
+                <span class="project-status status-planning">Planning</span>
+              </div>
+              <p class="project-description">Developing sustainable farming practices and irrigation systems to improve food security and farmer incomes.</p>
+              <div class="project-meta">
+                <span class="project-tag">Agriculture</span>
+                <span class="project-tag">Food Security</span>
+              </div>
+              <div class="project-metrics">
+                <div class="metric">
+                  <div class="metric-value">200</div>
+                  <div class="metric-label">Farmers</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">50</div>
+                  <div class="metric-label">Hectares</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">Q2</div>
+                  <div class="metric-label">Start Date</div>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span>15%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 15%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 6 -->
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Youth Leadership Program project image"></div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Youth Leadership Program</h3>
+                <span class="project-status status-ongoing">Ongoing</span>
+              </div>
+              <p class="project-description">Empowering young people with leadership skills and community organizing training to create positive change.</p>
+              <div class="project-meta">
+                <span class="project-tag">Youth</span>
+                <span class="project-tag">Leadership</span>
+              </div>
+              <div class="project-metrics">
+                <div class="metric">
+                  <div class="metric-value">75</div>
+                  <div class="metric-label">Youth</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">5</div>
+                  <div class="metric-label">Communities</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">12</div>
+                  <div class="metric-label">Workshops</div>
+                </div>
+              </div>
+              <div class="project-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span>40%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 40%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+          <div class="loading-spinner"></div>
+          <p>Loading more projects...</p>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" role="navigation" aria-label="Projects pagination">
+          <button class="page-btn" disabled aria-label="Previous page">Previous</button>
+          <button class="page-btn active" aria-label="Page 1" aria-current="page">1</button>
+          <button class="page-btn" aria-label="Page 2">2</button>
+          <button class="page-btn" aria-label="Page 3">3</button>
+          <button class="page-btn" aria-label="Next page">Next</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+      <div class="container footer-grid">
+          <div class="footer-col">
+              <h4>About</h4>
+              <ul>
+                  <li><a href="about-us.html">Who We Are</a></li>
+                  <li><a href="about-us.html">Our Impact</a></li>
+                  <li><a href="transparncy.html">Annual Reports</a></li>
+              </ul>
+          </div>
+          <div class="footer-col">
+              <h4>Our Work</h4>
+              <ul>
+                  <li><a href="projects.html">Education</a></li>
+                  <li><a href="projects.html">Health</a></li>
+                  <li><a href="projects.html">Livelihoods</a></li>
+              </ul>
+          </div>
+          <div class="footer-col">
+              <h4>Get Involved</h4>
+              <ul>
+                  <li><a href="get-involoved.html">Donate</a></li>
+                  <li><a href="get-involoved.html">Volunteer</a></li>
+                  <li><a href="get-involoved.html">Partner With Us</a></li>
+              </ul>
+          </div>
+          <div class="footer-col">
+              <h4>Contact</h4>
+              <ul>
+                  <li><a href="get-involoved.html">Email</a></li>
+                  <li><a href="get-involoved.html">Phone</a></li>
+                  <li><a href="transparncy.html">Transparency</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="container footer-bottom">
+          <div>&copy; <span id="y">2025</span> SEVO. All rights reserved.</div>
+      </div>
+  </footer>
+</body>
+</html>

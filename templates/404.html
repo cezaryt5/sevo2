@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Page Not Found - SEVO{% endblock %}
+
+{% block content %}
+<style>
+    .error-container {
+        max-width: 600px;
+        margin: 100px auto;
+        padding: 40px;
+        text-align: center;
+    }
+    
+    .error-code {
+        font-size: 120px;
+        font-weight: bold;
+        color: #2c5f2d;
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+    
+    .error-title {
+        font-size: 32px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .error-message {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+    
+    .error-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    
+    .btn-primary {
+        background: #2c5f2d;
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        background: #1e4620;
+    }
+    
+    .btn-secondary {
+        background: #f0f0f0;
+        color: #333;
+    }
+    
+    .btn-secondary:hover {
+        background: #e0e0e0;
+    }
+    
+    .error-icon {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="error-container">
+    <div class="error-icon">🔍</div>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-message">
+        Sorry, the page you're looking for doesn't exist or has been moved.
+        Let's get you back on track.
+    </p>
+    <div class="error-actions">
+        <a href="{% url 'website:home' %}" class="btn btn-primary">Go to Homepage</a>
+        <a href="{% url 'website:projects' %}" class="btn btn-secondary">View Projects</a>
+        <a href="{% url 'donations:donate' %}" class="btn btn-secondary">Make a Donation</a>
+    </div>
+</div>
+{% endblock %}
+

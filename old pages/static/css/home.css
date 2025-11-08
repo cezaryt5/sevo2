@@ -1,0 +1,229 @@
+/* Home Page Specific Styles */
+
+@import url('./shared.css');
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 8rem 0 3rem;
+    margin-top: -80px; /* Compensate for fixed header */
+    padding-top: calc(5rem + 80px); /* Add header height to padding */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.5px;
+}
+
+.hero .btn {
+    margin-bottom: 2rem;
+    background: var(--black);
+    color: #fff;
+    border: 2px solid var(--black);
+}
+
+.hero .btn:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.hero-image {
+    height: 500px;
+    background-color: var(--placeholder);
+    border-radius: var(--radius-2);
+}
+
+/* Features Section - Alternating Layout */
+.features {
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.feature-item .feature-text {
+    flex: 1;
+}
+
+.feature-item .feature-image {
+    flex: 1;
+    height: 450px;
+    background-color: var(--placeholder);
+    border-radius: var(--radius-2);
+}
+
+/* This flips the order for even-numbered items */
+.feature-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.feature-item h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    color: var(--text);
+    max-width: 450px;
+    line-height: 1.6;
+}
+
+/* Statistics Section */
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.stat-item .number {
+    font-size: 4.5rem;
+    font-weight: bold;
+}
+
+.stat-item .label {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Initiatives Section */
+.initiatives {
+    padding: 4rem 0;
+}
+
+.initiatives-image {
+    height: 500px;
+    background-color: var(--placeholder);
+    border-radius: var(--radius-2);
+    margin-bottom: 2rem;
+}
+
+.initiatives-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.initiatives-content p {
+    max-width: 600px;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta {
+    text-align: center;
+    padding: 6rem 0;
+    border-top: 1px solid #eee;
+    margin-top: 4rem;
+}
+
+.cta h2 {
+    font-size: 2.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.cta p {
+    font-size: 1.5rem;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: calc(4rem + 80px);
+    }
+    
+    .feature-item,
+    .feature-item:nth-child(even) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .feature-item .feature-image {
+        height: 350px;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: calc(3rem + 70px); /* Adjust for smaller header on mobile */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.75rem;
+    }
+    
+    .feature-item h2,
+    .cta h2 {
+        font-size: 2.25rem;
+    }
+    
+    .feature-item p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding-top: calc(2rem + 60px); /* Further adjust for smallest screens */
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.5rem;
+    }
+    
+    .statistics .number {
+        font-size: 3.5rem;
+    }
+    
+    .feature-item h2,
+    .cta h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-image {
+        height: 300px;
+    }
+    
+    .feature-item .feature-image {
+        height: 250px;
+    }
+    
+    .initiatives-image {
+        height: 300px;
+    }
+}

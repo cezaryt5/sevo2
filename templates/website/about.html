@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - SEVO{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about-us.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>About SEVO</h1>
+    <p>Social Empowerment Volunteer Organization (SEVO) is dedicated to empowering Sudanese communities through sustainable development projects.</p>
+    
+    <h2>Our Mission</h2>
+    <p>To create lasting positive change in Sudanese communities by providing access to clean water, education, healthcare, and economic opportunities.</p>
+    
+    <h2>Our Partners</h2>
+    <div class="partners-grid">
+        {% for partner in partners %}
+        <div class="partner-card">
+            {% if partner.logo %}
+            <img src="{{ partner.logo.url }}" alt="{{ partner.name }}">
+            {% endif %}
+            <h3>{{ partner.name }}</h3>
+            <p>{{ partner.get_partnership_type_display }}</p>
+        </div>
+        {% empty %}
+        <p>No partners to display yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/about-us.js' %}" defer></script>
+{% endblock %}
+

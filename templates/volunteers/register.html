@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Volunteer Registration - SEVO{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/volunteers.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>Become a Volunteer</h1>
+    <p>Join our team of dedicated volunteers making a real impact in Sudanese communities.</p>
+    
+    <div class="volunteer-form">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <p>Please correct the errors below:</p>
+                {{ form.errors }}
+            </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <label for="{{ form.full_name.id_for_label }}">Full Name *</label>
+                {{ form.full_name }}
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email *</label>
+                    {{ form.email }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.phone.id_for_label }}">Phone *</label>
+                    {{ form.phone }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+                {{ form.date_of_birth }}
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.city.id_for_label }}">City *</label>
+                    {{ form.city }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.address.id_for_label }}">Address *</label>
+                    {{ form.address }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.availability.id_for_label }}">Availability *</label>
+                {{ form.availability }}
+            </div>
+            
+            <div class="form-group">
+                <label>Skills *</label>
+                <div class="skills-group">
+                    {% for checkbox in form.skills %}
+                    <label>
+                        {{ checkbox.tag }}
+                        {{ checkbox.choice_label }}
+                    </label>
+                    {% endfor %}
+                </div>
+                {% if form.skills.help_text %}
+                <div class="help-text">{{ form.skills.help_text }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.bio.id_for_label }}">About You *</label>
+                {{ form.bio }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.profile_picture.id_for_label }}">Profile Picture</label>
+                {{ form.profile_picture }}
+                {% if form.profile_picture.help_text %}
+                <div class="help-text">{{ form.profile_picture.help_text }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn-submit">Submit Application</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+

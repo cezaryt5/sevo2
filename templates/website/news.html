@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}News - SEVO{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/news.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>News & Updates</h1>
+    
+    <!-- Featured Article -->
+    {% if featured %}
+    <div class="featured-article">
+        {% if featured.featured_image %}
+        <img src="{{ featured.featured_image.url }}" alt="{{ featured.title }}">
+        {% endif %}
+        <h2>{{ featured.title }}</h2>
+        <p>{{ featured.excerpt }}</p>
+        <a href="{% url 'website:news_detail' featured.slug %}" class="btn">Read More</a>
+    </div>
+    {% endif %}
+    
+    <!-- Search and Filter -->
+    <form method="get" class="filters">
+        <input type="text" name="search" placeholder="Search news..." value="{{ search }}">
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="success_story" {% if category == 'success_story' %}selected{% endif %}>Success Story</option>
+            <option value="event" {% if category == 'event' %}selected{% endif %}>Event</option>
+            <option value="update" {% if category == 'update' %}selected{% endif %}>Update</option>
+            <option value="press" {% if category == 'press' %}selected{% endif %}>Press</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    
+    <!-- News Grid -->
+    <div class="news-grid">
+        {% for article in page_obj %}
+        <div class="news-card">
+            {% if article.featured_image %}
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}">
+            {% endif %}
+            <span class="badge">{{ article.get_category_display }}</span>
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.excerpt|truncatewords:30 }}</p>
+            <div class="meta">
+                <span>{{ article.published_at|date:"M d, Y" }}</span>
+                <span>{{ article.views_count }} views</span>
+            </div>
+            <a href="{% url 'website:news_detail' article.slug %}" class="btn">Read More</a>
+        </div>
+        {% empty %}
+        <p>No news articles found.</p>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if search %}&search={{ search }}{% endif %}{% if category %}&category={{ category }}{% endif %}">Previous</a>
+        {% endif %}
+        
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if search %}&search={{ search }}{% endif %}{% if category %}&category={{ category }}{% endif %}">Next</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/news.js' %}" defer></script>
+{% endblock %}

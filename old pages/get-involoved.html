@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved — Unity & Hope</title>
+    
+    <link rel="stylesheet" href="css/get-involoved.css">
+    <script src="shared/js/shared.js" defer></script>
+    <script src="js/get-involoved.js" defer></script>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav" role="navigation" aria-label="Site">
+            <div class="brand" aria-label="Unity and Hope logo">
+                <span>Unity & Hope</span>
+            </div>
+            <nav role="navigation" aria-label="Primary">
+                <ul>
+                    <li><a href="home.html" aria-label="Home">Home</a></li>
+                    <li><a href="about-us.html" aria-label="About Us">About Us</a></li>
+                    <li><a href="projects.html" aria-label="Projects">Projects</a></li>
+                    <li><a href="news.html" aria-label="News">News</a></li>
+                    <li><a href="get-involoved.html" class="active" aria-current="page">Get Involved</a></li>
+                    <li><a href="transparncy.html" aria-label="Transparency">Transparency</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <a class="btn btn-black" href="get-involoved.html" aria-label="Donate Now">Donate Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section container">
+            <h1>Get Involved</h1>
+            <p>Join our movement for positive change. Whether you donate, volunteer, or partner with us, your support creates lasting impact.</p>
+        </section>
+
+        <!-- Main Content Grid -->
+        <section class="main-content section">
+            <div class="container">
+                <div class="main-grid">
+                    
+                    <!-- Form Container -->
+                    <div class="form-container">
+                        <!-- Form Tabs -->
+                        <div class="form-tabs">
+                            <button class="tab-button active" data-form="donate">Donate</button>
+                            <button class="tab-button" data-form="volunteer">Volunteer</button>
+                            <button class="tab-button" data-form="partner">Partner With Us</button>
+                        </div>
+
+                        <!-- Donate Form Section -->
+                        <div id="form-donate" class="form-section active">
+                            <h2>Make a Donation</h2>
+                            <p>Your generosity powers our mission to bring hope and opportunity to communities across Sudan.</p>
+                            
+                            <!-- Donation Type (Local/International) -->
+                            <div class="form-group">
+                                <label>Donation Type</label>
+                                <div class="button-radio-group">
+                                    <input type="radio" id="type_local" name="donation_type" value="local" checked>
+                                    <label for="type_local">Local (Sudan)</label>
+                                    <input type="radio" id="type_international" name="donation_type" value="international">
+                                    <label for="type_international">International</label>
+                                </div>
+                            </div>
+
+                            <!-- Amount Selection (for international donations) -->
+                            <div id="international-fields" class="form-group" style="display: none;">
+                                <label>Select Amount</label>
+                                <div class="button-radio-group amount-group">
+                                    <input type="radio" id="amount_25" name="amount" value="25">
+                                    <label for="amount_25">$25</label>
+                                    <input type="radio" id="amount_50" name="amount" value="50">
+                                    <label for="amount_50">$50</label>
+                                    <input type="radio" id="amount_100" name="amount" value="100">
+                                    <label for="amount_100">$100</label>
+                                    <input type="radio" id="amount_250" name="amount" value="250">
+                                    <label for="amount_250">$250</label>
+                                    <input type="radio" id="amount_other" name="amount" value="other">
+                                    <label for="amount_other">Other</label>
+                                </div>
+                                <div id="other-amount-wrapper">
+                                    <input type="number" id="other_amount_input" placeholder="Enter amount" min="1">
+                                </div>
+                            </div>
+
+                            <!-- Bank Selection (for local donations) -->
+                            <div id="local-fields" class="form-group">
+                                <label>Select Bank</label>
+                                <div class="button-radio-group bank-button-group">
+                                    <input type="radio" id="bank_khartoum" name="bank" value="Bank of Khartoum" checked>
+                                    <label for="bank_khartoum">Bank of Khartoum</label>
+                                    <input type="radio" id="bank_faisal" name="bank" value="Faisal Islamic Bank">
+                                    <label for="bank_faisal">Faisal Islamic Bank</label>
+                                    <input type="radio" id="bank_omdurman" name="bank" value="Omdurman National Bank">
+                                    <label for="bank_omdurman">Omdurman National Bank</label>
+                                    <input type="radio" id="bank_baraka" name="bank" value="Al Baraka Bank">
+                                    <label for="bank_baraka">Al Baraka Bank</label>
+                                    <input type="radio" id="bank_sudan" name="bank" value="Bank of Sudan">
+                                    <label for="bank_sudan">Bank of Sudan</label>
+                                </div>
+                                <div id="bank-details-box"></div>
+                            </div>
+
+                            <!-- Upload Proof (for local donations) -->
+                            <div id="local-fields-2" class="form-group">
+                                <label>Upload Payment Proof</label>
+                                <div class="form-group-file">
+                                    <input type="file" id="payment_proof" accept="image/*,.pdf">
+                                    <label for="payment_proof" id="file-label">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17,8 12,3 7,8"></polyline>
+                                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                                        </svg>
+                                        Choose file or drag here
+                                    </label>
+                                    <span id="file-name"></span>
+                                </div>
+                            </div>
+
+                            <!-- Personal Information -->
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="full_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number (Optional)</label>
+                                <input type="tel" name="phone">
+                            </div>
+
+                            <!-- Message -->
+                            <div class="form-group">
+                                <label>Message (Optional)</label>
+                                <textarea name="message" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-black full-width">Submit Donation</button>
+                        </div>
+
+                        <!-- Volunteer Form Section -->
+                        <div id="form-volunteer" class="form-section">
+                            <h2>Volunteer With Us</h2>
+                            <p>Share your time and skills to make a direct impact in communities that need support most.</p>
+
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="volt_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="volt_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" name="volt_phone">
+                            </div>
+                            <div class="form-group">
+                                <label>Areas of Interest</label>
+                                <div class="button-radio-group">
+                                    <input type="checkbox" id="edu_interest" name="interests[]" value="education">
+                                    <label for="edu_interest">Education</label>
+                                    <input type="checkbox" id="health_interest" name="interests[]" value="health">
+                                    <label for="health_interest">Health</label>
+                                    <input type="checkbox" id="water_interest" name="interests[]" value="water">
+                                    <label for="water_interest">Water Projects</label>
+                                    <input type="checkbox" id="women_interest" name="interests[]" value="women">
+                                    <label for="women_interest">Women's Empowerment</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Tell us about yourself and why you want to volunteer</label>
+                                <textarea name="volt_message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-black full-width">Submit Application</button>
+                        </div>
+
+                        <!-- Partner Form Section -->
+                        <div id="form-partner" class="form-section">
+                            <h2>Partner With Us</h2>
+                            <p>Collaborate with us to expand our reach and create greater collective impact.</p>
+
+                            <div class="form-group">
+                                <label>Organization Name</label>
+                                <input type="text" name="part_org_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Person Name</label>
+                                <input type="text" name="part_contact_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="part_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Partnership Type</label>
+                                <div class="button-radio-group">
+                                    <input type="radio" id="partner_funding" name="partnership_type" value="funding">
+                                    <label for="partner_funding">Funding Partner</label>
+                                    <input type="radio" id="partner_program" name="partnership_type" value="program">
+                                    <label for="partner_program">Program Partner</label>
+                                    <input type="radio" id="partner_technical" name="partnership_type" value="technical">
+                                    <label for="partner_technical">Technical Support</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Tell us about your organization and proposed partnership</label>
+                                <textarea name="part_message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-black full-width">Submit Partnership Inquiry</button>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info Card -->
+                    <div class="contact-info-card">
+                        <h2>Other Ways to Give</h2>
+                        <p>Beyond donations and volunteering, there are many ways to support our mission and make a difference.</p>
+                        <strong>Direct Bank Transfer:</strong>
+                        <p>Make direct deposits to our bank accounts listed in the donation form above.</p>
+                        <strong>In-Kind Donations:</strong>
+                        <p>We accept educational materials, medical supplies, and equipment. Contact us to arrange donations.</p>
+                        <strong>Corporate Sponsorship:</strong>
+                        <p>Partner with us through corporate social responsibility programs. Custom packages available.</p>
+                        <strong>Monthly Giving:</strong>
+                        <p>Set up recurring monthly donations for sustained impact throughout the year.</p>
+                        <strong>Estate Planning:</strong>
+                        <p>Include Unity & Hope in your estate planning to leave a lasting legacy of hope.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about-us.html">Who We Are</a></li>
+                    <li><a href="about-us.html">Our Impact</a></li>
+                    <li><a href="transparncy.html">Annual Reports</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Work</h4>
+                <ul>
+                    <li><a href="projects.html">Education</a></li>
+                    <li><a href="projects.html">Health</a></li>
+                    <li><a href="projects.html">Livelihoods</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="get-involoved.html">Donate</a></li>
+                    <li><a href="get-involoved.html">Volunteer</a></li>
+                    <li><a href="get-involoved.html">Partner With Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:hello@unityandhope.org">hello@unityandhope.org</a></li>
+                    <li><a href="get-involoved.html">Khartoum & Global</a></li>
+                    <li><a href="get-involoved.html">+249 (000) 000-000</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; <span id="y">2025</span> Unity & Hope. All rights reserved.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

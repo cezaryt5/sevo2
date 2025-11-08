@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projects - SEVO{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>Our Projects</h1>
+    
+    <!-- Search and Filter -->
+    <form method="get" class="filters">
+        <input type="text" name="search" placeholder="Search projects..." value="{{ search }}">
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="water" {% if category == 'water' %}selected{% endif %}>Water</option>
+            <option value="education" {% if category == 'education' %}selected{% endif %}>Education</option>
+            <option value="health" {% if category == 'health' %}selected{% endif %}>Health</option>
+            <option value="women" {% if category == 'women' %}selected{% endif %}>Women's Empowerment</option>
+            <option value="agriculture" {% if category == 'agriculture' %}selected{% endif %}>Agriculture</option>
+            <option value="youth" {% if category == 'youth' %}selected{% endif %}>Youth</option>
+        </select>
+        <select name="status">
+            <option value="">All Status</option>
+            <option value="planning" {% if status == 'planning' %}selected{% endif %}>Planning</option>
+            <option value="ongoing" {% if status == 'ongoing' %}selected{% endif %}>Ongoing</option>
+            <option value="completed" {% if status == 'completed' %}selected{% endif %}>Completed</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+        {% for project in page_obj %}
+        <div class="project-card">
+            {% if project.featured_image %}
+            <img src="{{ project.featured_image.url }}" alt="{{ project.title }}">
+            {% endif %}
+            <span class="badge">{{ project.get_status_display }}</span>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description|truncatewords:20 }}</p>
+            <div class="project-meta">
+                <span>{{ project.location }}</span>
+                <span>{{ project.category|title }}</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ project.progress_percentage }}%"></div>
+            </div>
+            <p>{{ project.progress_percentage }}% Complete</p>
+            <a href="{% url 'website:project_detail' project.slug %}" class="btn">View Details</a>
+        </div>
+        {% empty %}
+        <p>No projects found.</p>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if search %}&search={{ search }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if status %}&status={{ status }}{% endif %}">Previous</a>
+        {% endif %}
+        
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if search %}&search={{ search }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if status %}&status={{ status }}{% endif %}">Next</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/projects.js' %}" defer></script>
+{% endblock %}

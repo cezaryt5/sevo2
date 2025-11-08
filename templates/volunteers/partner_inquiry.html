@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Partner With Us - SEVO{% endblock %}
+
+{% block extra_css %}
+<style>
+.partner-form {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.btn-submit:hover {
+    background: #333;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>Partner With SEVO</h1>
+    <p>Collaborate with us to create lasting change in Sudanese communities.</p>
+    
+    <div class="partner-form">
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <p>Please correct the errors below:</p>
+                {{ form.errors }}
+            </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <label for="{{ form.organization_name.id_for_label }}">Organization Name *</label>
+                {{ form.organization_name }}
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.contact_person.id_for_label }}">Contact Person *</label>
+                    {{ form.contact_person }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email *</label>
+                    {{ form.email }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.phone.id_for_label }}">Phone</label>
+                {{ form.phone }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.partnership_type.id_for_label }}">Partnership Type *</label>
+                {{ form.partnership_type }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}">Message *</label>
+                {{ form.message }}
+            </div>
+            
+            <button type="submit" class="btn-submit">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+

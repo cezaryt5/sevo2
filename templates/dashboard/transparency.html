@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Transparency - SEVO{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/transparency.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>Transparency Dashboard</h1>
+    <p>We believe in complete transparency. Here's how your donations are making an impact.</p>
+    
+    <!-- Key Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <h3>${{ total_donations|floatformat:0|default:"0" }}</h3>
+            <p>Total Donations</p>
+        </div>
+        <div class="metric-card">
+            <h3>{{ total_projects }}</h3>
+            <p>Active Projects</p>
+        </div>
+        <div class="metric-card">
+            <h3>{{ active_volunteers }}</h3>
+            <p>Active Volunteers</p>
+        </div>
+        <div class="metric-card">
+            <h3>{{ people_helped|default:"45,000+" }}</h3>
+            <p>People Helped</p>
+        </div>
+    </div>
+    
+    <!-- Financial Breakdown -->
+    <div class="financial-section">
+        <h2>Financial Breakdown</h2>
+        <div class="breakdown-chart">
+            <div class="chart-item" style="width: {{ financial_breakdown.programs }}%">
+                <span>{{ financial_breakdown.programs }}% Programs</span>
+            </div>
+            <div class="chart-item" style="width: {{ financial_breakdown.fundraising }}%">
+                <span>{{ financial_breakdown.fundraising }}% Fundraising</span>
+            </div>
+            <div class="chart-item" style="width: {{ financial_breakdown.admin }}%">
+                <span>{{ financial_breakdown.admin }}% Admin</span>
+            </div>
+        </div>
+        <p>{{ financial_breakdown.programs }}% of donations go directly to programs and services.</p>
+    </div>
+    
+    <!-- Impact Metrics -->
+    <div class="impact-section">
+        <h2>Our Impact</h2>
+        <ul class="impact-list">
+            {% for metric in impact_metrics %}
+            <li>
+                <strong>{{ metric.value }}</strong> {{ metric.label }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <!-- Annual Reports -->
+    <div class="reports-section">
+        <h2>Annual Reports</h2>
+        {% if reports %}
+        <div class="reports-grid">
+            {% for report in reports %}
+            <div class="report-card">
+                <h3>{{ report.title }}</h3>
+                <p>Year: {{ report.year }}</p>
+                <p>Total Donations: ${{ report.total_donations|floatformat:0 }}</p>
+                {% if report.report_file %}
+                <a href="{{ report.report_file.url }}" class="btn" download>Download Report</a>
+                {% else %}
+                <span class="btn disabled">No File Available</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No annual reports available yet.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/transparency.js' %}" defer></script>
+{% endblock %}

@@ -1,0 +1,88 @@
+/* Transparency Page Specific Styles */
+
+@import url('./shared.css');
+
+/* Metrics Section */
+.metrics { padding-bottom: 4rem; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.metric-card { text-align: center; padding: 2rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-2); }
+.metric-card .number { font-size: 2.75rem; font-weight: 600; color: #000; margin-bottom: 0.25rem; }
+.metric-card .label { font-size: 0.9rem; color: #555; }
+
+/* Main Content Section */
+.main-content { padding-bottom: 4rem; }
+.main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.main-grid h2 { font-size: 1.5rem; color: #000; font-weight: 600; margin-bottom: 0.75rem; }
+.main-grid p { font-size: 0.9rem; color: #555; margin-bottom: 1.5rem; }
+
+/* Card, pie-chart, and legend components inherited from shared.css */
+
+/* Finance Content */
+.finance-content { display: flex; align-items: center; gap: 2rem; }
+
+/* Impact List */
+.impact-list { list-style: none; }
+.impact-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
+.impact-list .icon { width: 24px; height: 24px; stroke: #000; stroke-width: 2; fill: none; flex-shrink: 0; margin-top: 2px; }
+.impact-list .text strong { display: block; color: #000; font-weight: 600; font-size: 1rem; }
+.impact-list .text span { font-size: 0.9rem; color: #555; }
+
+/* Reports List */
+.reports-list { list-style: none; }
+.reports-list li { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #f0f0f0; }
+.reports-list li:first-child { border-top: 1px solid #f0f0f0; }
+.reports-list a { text-decoration: none; color: #000; font-weight: 500; font-size: 0.9rem; }
+.reports-list .icon { width: 20px; height: 20px; stroke: #555; stroke-width: 2; }
+
+/* Bottom CTA Section */
+.bottom-cta { padding: 4rem 0; text-align: center; background-color: var(--soft-bg); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.bottom-cta h2 { font-size: 1.75rem; color: #000; font-weight: 600; margin-bottom: 0.75rem; }
+.bottom-cta p { font-size: 1rem; max-width: 500px; margin: 0 auto 1.5rem auto; color: #555; }
+
+/* Responsive Design for Transparency Page */
+@media (max-width: 992px) {
+  .main-grid {
+    grid-template-columns: 1fr; /* Stack financials, impact, etc. */
+  }
+  .finance-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr; /* Stack top metrics */
+  }
+  
+  .pie-chart {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .legend {
+    margin-top: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .metric-card .number {
+    font-size: 2.25rem;
+  }
+  
+  .metric-card {
+    padding: 1.5rem;
+  }
+  
+  .card {
+    padding: var(--space-4);
+  }
+  
+  .bottom-cta {
+    padding: 3rem 0;
+  }
+  
+  .bottom-cta h2 {
+    font-size: 1.5rem;
+  }
+}

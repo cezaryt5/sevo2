@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bank Transfer - SEVO{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/donations.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>Bank Transfer Details</h1>
+    
+    <div class="bank-info">
+        <div class="alert">
+            <strong>Donation Amount:</strong> {{ donation.amount }} {{ donation.currency }}
+        </div>
+        
+        <h2>SEVO Bank Accounts</h2>
+        <p>Please transfer to one of the following accounts:</p>
+        
+        <div class="bank-accounts">
+            <div class="bank-card">
+                <h3>Bank of Khartoum</h3>
+                <div class="bank-details">
+                    <p><strong>Account Name:</strong> SEVO Organization</p>
+                    <p><strong>Account Number:</strong> 1234567890</p>
+                    <p><strong>Branch:</strong> Khartoum Main</p>
+                </div>
+            </div>
+            
+            <div class="bank-card">
+                <h3>Omdurman National Bank</h3>
+                <div class="bank-details">
+                    <p><strong>Account Name:</strong> SEVO Organization</p>
+                    <p><strong>Account Number:</strong> 0987654321</p>
+                    <p><strong>Branch:</strong> Omdurman Central</p>
+                </div>
+            </div>
+            
+            <div class="bank-card">
+                <h3>Agricultural Bank of Sudan</h3>
+                <div class="bank-details">
+                    <p><strong>Account Name:</strong> SEVO Organization</p>
+                    <p><strong>Account Number:</strong> 5555666677</p>
+                    <p><strong>Branch:</strong> Khartoum</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="upload-form">
+            <h2>Upload Payment Proof</h2>
+            <p>After making the transfer, please upload proof of payment:</p>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    {{ form.errors }}
+                </div>
+                {% endif %}
+                
+                <div class="form-group">
+                    <label for="{{ form.bank_name.id_for_label }}">Bank Used *</label>
+                    {{ form.bank_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.account_number.id_for_label }}">Your Account Number (Optional)</label>
+                    {{ form.account_number }}
+                    <small class="form-help-text">
+                        For verification purposes only
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.payment_proof.id_for_label }}">Payment Proof *</label>
+                    {{ form.payment_proof }}
+                    <small class="form-help-text">
+                        {{ form.payment_proof.help_text }}
+                    </small>
+                </div>
+                
+                <button type="submit" class="btn-submit">Submit Payment Proof</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
