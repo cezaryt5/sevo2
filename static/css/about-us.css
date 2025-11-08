@@ -1,0 +1,200 @@
+/* About Us Page Specific Styles */
+
+@import url('./shared.css');
+
+/* Timeline Section */
+.timeline-container {
+  position: relative;
+  margin-top: var(--space-6);
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-date {
+  flex: 0 0 120px;
+  font-weight: 700;
+  color: var(--black);
+  padding: var(--space-3);
+  background-color: var(--soft-bg);
+  border-radius: var(--radius-1);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: var(--space-4);
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2);
+  margin: 0 var(--space-4);
+}
+
+.timeline-content h4 {
+  margin-bottom: var(--space-2);
+  color: var(--black);
+}
+
+.timeline-content p {
+  color: var(--text);
+}
+
+/* Impact Charts Section */
+.impact-charts { padding: var(--space-7) 0; }
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.chart-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2);
+  padding: var(--space-5);
+}
+
+.chart-card h3 {
+  margin-bottom: var(--space-4);
+  color: var(--black);
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Pie chart and legend styles inherited from shared.css */
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 200px;
+  width: 100%;
+  padding: 0 var(--space-2);
+}
+
+.bar {
+  width: 40px;
+  background-color: var(--black);
+  border-radius: var(--radius-1) var(--radius-1) 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar-label {
+  position: absolute;
+  bottom: -25px;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.bar-value {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  font-size: 0.8rem;
+}
+
+.chart-caption {
+  text-align: center;
+  margin-top: var(--space-4);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design for About Us Page */
+@media (max-width: 980px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px;
+  }
+  
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+  }
+  
+  .timeline-date {
+    flex: 0 0 80px;
+    font-size: 0.9rem;
+  }
+  
+  .timeline-content {
+    margin-left: var(--space-4);
+    margin-right: 0;
+  }
+  
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline-date {
+    margin-bottom: var(--space-2);
+  }
+  
+  .timeline-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .chart-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .pie-chart {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .bar-chart {
+    height: 150px;
+  }
+  
+  .bar {
+    width: 30px;
+  }
+}

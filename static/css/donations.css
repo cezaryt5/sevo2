@@ -1,0 +1,169 @@
+/* Donations Page Specific Styles */
+
+@import url('./shared.css');
+
+/* Donation Form Container */
+.donation-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--soft-bg);
+    border-radius: var(--radius-2);
+}
+
+/* Bank Transfer Info Container */
+.bank-info {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--soft-bg);
+    border-radius: var(--radius-2);
+}
+
+/* Bank Accounts Grid */
+.bank-accounts {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.bank-card {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-1);
+}
+
+.bank-card h3 {
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.bank-details {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.bank-details p {
+    margin: 0;
+    color: var(--text);
+}
+
+/* Upload Form */
+.upload-form {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: var(--radius-1);
+    border: 1px solid var(--border);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-1);
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--black);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--black);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-1);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-submit:hover {
+    background: #000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.3);
+}
+
+/* Alert Styles */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--radius-1);
+    background: var(--soft-bg);
+    border: 1px solid var(--border);
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donation-form,
+    .bank-info {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+    
+    .bank-card {
+        padding: 1rem;
+    }
+    
+    .upload-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .donation-form,
+    .bank-info {
+        padding: 1rem;
+    }
+    
+    .form-control {
+        padding: 0.625rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-submit {
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+}
+
